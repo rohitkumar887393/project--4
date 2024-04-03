@@ -1,0 +1,30 @@
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(8,7,6,5,4,3);
+
+const int flexSensorPin = A0;
+const int forceSensorPin = A1;
+
+int flexSensorValue = 0;
+int forceSensorValue = 0;
+
+void setup() {
+  lcd.begin(16, 2);
+  pinMode(flexSensorPin, INPUT);
+  pinMode(forceSensorPin, INPUT);
+}
+
+void loop() {
+  flexSensorValue = analogRead(flexSensorPin);
+  forceSensorValue = analogRead(forceSensorPin);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Flex :");
+  lcd.setCursor(0, 1);
+  lcd.print(flexSensorValue);
+  lcd.setCursor(10, 0);
+  lcd.print("Force:");
+  lcd.setCursor(10, 1);
+  lcd.print(forceSensorValue);
+
+  delay(500);
+}
