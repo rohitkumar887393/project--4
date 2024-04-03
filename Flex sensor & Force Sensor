@@ -12,7 +12,6 @@ void setup() {
   pinMode(flexSensorPin, INPUT);
   pinMode(forceSensorPin, INPUT);
 }
-
 void loop() {
   flexSensorValue = analogRead(flexSensorPin);
   forceSensorValue = analogRead(forceSensorPin);
